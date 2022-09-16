@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title == 'Олень' %}
+    <title>Биография {{title[:-1]+'ей'}}</title>
+    {% else %}
+    <title> Автобиография </title>
+    {% endif %}
+</head>
+<body>
+{% if title == 'Олень' %}
+<img src="https://phototass2.cdnvideo.ru/width/960_51849019/tass/m2/uploads/i/20210802/6268211.jpg">
+{% else %}
+<h1>Студент ИСТ самый лучший {{user.username}}</h1>
+{% endif %}
+</body>
+</html>

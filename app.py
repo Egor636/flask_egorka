@@ -1,12 +1,14 @@
-from flask import Flask
-
+from flask import Flask, render_template
+from random import choice
 app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/index/')
 def hello():
-    return 'ываываыва<h1>Мое первое приложение на фласке!!</h1> <p> Вторая строчка </p>' \
-           '<table><table border=#><tr><td>ячейка 1</td><td>ячейка 2</td></tr></table> '
+    user = {'username':'Cтанислав'}
+    title_sp = ("Олень", 'Деноминация', 'Феррари')
+    return render_template('index.html', title=choice(title_sp),  user=user)
 
 
 @app.route('/privet/')
