@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{title}}</title>
+</head>
+<body>
+{% if title == 'Будущее группы ИВТ' %}
+<h1>Знайте их в лицо {{user.1.0}}</h1>
+<img src="{{user.1.1}}" width='700' height='400'>
+
+
+{% else %}
+<h1>Наша гордость {{user_otl.1.0}}</h1>
+<img src="{{user_otl.1.1}}" width='1400' height='800'>
+
+{% endif %}
+</body>
+</html>
