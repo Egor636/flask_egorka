@@ -36,7 +36,7 @@ def hello_ivt():
     # return render_template('index.html', title=choice(title_sp),  user=user)
     return render_template('ivt.html', title=choice(title_r), user=choice(list(ivt_losers.items())),
                            user_otl=choice(list(ivt_winners.items())))
-
+#sdfvsdf
 
 @app.route('/privet/')
 def greeting():
