@@ -1,4 +1,4 @@
-# gruup = {1:'ПРи201' }
+# gruup = {1:'ПРи201' 2: 'ПИ-201' }
 GROUP = 1
 if  GROUP == 1:
     from apppri import app
