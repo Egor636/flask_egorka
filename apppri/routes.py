@@ -7,4 +7,4 @@ from flask import render_template
 def index():
     best_pri = {'username': 'Макарцев'}
 
-    return render_template('indexpri.html', title='2022 Forever', user=best_pri)
+    return render_template('indexpi.html', title='2022 Forever', user=best_pri)
