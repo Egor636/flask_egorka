@@ -1,9 +1,13 @@
-# gruup = {1:'ПРи201' 2: 'ПИ-201' }
-GROUP = 2
+# grup = {1:'ПРи201', 2: 'ПИ-201', 3: 'ИСТ-201' }
+
+GROUP = 3
 if  GROUP == 1:
     from apppri import app
 elif GROUP == 2:
     from apppi import app
+elif GROUP == 3:
+    from appist import app
+
 
 
 if __name__ == '__main__':

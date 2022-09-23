@@ -1,4 +1,4 @@
-from apppi import app
+from appist import app
 from flask import render_template
 
 

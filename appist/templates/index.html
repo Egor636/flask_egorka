@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Тут что то должно быть</title>
+    {% endif %}
+</head>
+<body>
+<h1> Добро пожаловать на сайт!! <br>
+    {{user.username}}
+
+</h1>
+</body>
+</html>
