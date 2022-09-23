@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta charset="UTF-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Тут что то должно быть</title>
+    {% endif %}
+</head>
+<body>
+<div> <h1> ИВТ 201</h1> <h2><a href="/index/"> Главная </a>  <span>-------    </span>   <a href="/dishes/"> Блюда </a> </h2> </div>
+{% block content %}
+{% endblock  %}
+</body>
+</html>

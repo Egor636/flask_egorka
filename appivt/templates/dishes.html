@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Добро пожаловать на сайт, давайте узнаем о ваших любимых блюдах <br>
+   {{abuser.username}}
+
+</h1>
+<h2>
+   {% for dishes in favorite_dishes %}
+   <div><p> Ваше любимое блюдо {{ dishes.name.dishname}} включает в себя: </p>
+       <ul>
+           <li><b> {{ dishes.ingridients.ingr1}} </b> </li>
+           <li><b> {{ dishes.ingridients.ingr2}} </b> </li>
+       </ul></div>
+   <div> <h3>и выглядит следующим образом</h3> <img src = {{dishes.photo}} width="400"> </div>
+
+  {% endfor %}
+
+</h2>
+{% endblock %}
