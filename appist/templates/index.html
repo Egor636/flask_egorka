@@ -11,7 +11,14 @@
 <body>
 <h1> Добро пожаловать на сайт!! <br>
     {{user.username}}
-
 </h1>
+<h2>
+    {% for writes in favorite_writes %}
+    <div><p> Мои любимый автор {{ writes.author.username}} написал произведение: <br>
+        <b>ㅤ__________{{ writes.body}} </b> </p></div>
+
+   {% endfor %}
+
+</h2>
 </body>
 </html>
