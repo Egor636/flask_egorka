@@ -1,8 +1,8 @@
 from apppri import app
 from flask import render_template
 
-menu = [{"name": "начало", "url": "index"},
-        {"name": "Главная", "url": "main"},
+menu = [{"title": "начало", "url": "index"},
+        {"title": "Главная", "url": "main"},
         ]
 
 
@@ -16,4 +16,4 @@ def index():
 
 @app.route('/main')
 def main():
-    return render_template('main.html', menu=menu, title= 'FJKHSF:OIUJFWIJHF')
+    return render_template('main.html', menu=menu, title= 'Главная')
