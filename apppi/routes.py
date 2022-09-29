@@ -1,6 +1,6 @@
 from apppi import app
 from flask import render_template
-
+from random import choice
 
 @app.route('/')
 @app.route('/index')
@@ -12,4 +12,5 @@ def index():
 
 @app.route('/help')
 def help():
-    return render_template('help.html')
+    sp = ['PI', '2014', '']
+    return render_template('help.html', title=choice(sp))8
