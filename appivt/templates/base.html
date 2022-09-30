@@ -2,16 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      <meta charset="UTF-8">
+    <link type="text/css" href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    {% block title -%}
     {% if title %}
     <title>{{title}}</title>
     {% else %}
-    <title>Тут что то должно быть</title>
+    <title>Flask</title>
     {% endif %}
+    {% endblock %}
 </head>
 <body>
-<div> <h1> ИВТ 201</h1> <h2><a href="/index/"> Главная </a>  <span>-------    </span>   <a href="/dishes/"> Блюда </a> </h2> </div>
-{% block content %}
-{% endblock  %}
+{% block content -%}
+            {%-  block mainmenu -%}
+                <ul class="mainmenu">
+                    {% for m in menu -%}
+
+                    <li>  <a href="{{m.url}}"> {{m.name}} </a> </li>
+                    {% endfor -%}
+                </ul>
+            {% endblock mainmenu -%}
+    <div class="clear"></div>
+    <div class="content">
+    {% if title -%}
+    <h1>{{title}}</h1>
+    {% else -%}
+    <h1>Flask</h1>
+    {% endif -%}
+        </div>
+{% endblock %}
 </body>
 </html>
