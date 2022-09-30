@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 {{super()}}
+<div class="shlyapkin">
 <h1> Добро пожаловать на сайт!! <br>
     {{user.username}}
 </h1>
+</div>
 <h2>
     {% for writes in favorite_writes %}
-    <div><p> Мои любимый автор {{ writes.author.username}} написал произведение: <br>
-        <b>ㅤ__________{{ writes.body}} </b> </p></div>
-
+    <div class="test">
+        <ul>
+            <li>Мои любимый автор {{ writes.author.username}} написал произведение <b>ㅤ{{ writes.body}} </b></li>
+        </ul>
+    </div>
    {% endfor %}
 
 </h2>

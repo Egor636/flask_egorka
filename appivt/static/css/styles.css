@@ -39,9 +39,24 @@ ul.mainmenu li a:hover {
 	color: #FDA83D;
 }
 
+.test li{
+list-style-type: circle;
+    font-size:24px;
+    color: #3F4137;
+    font-family: 'Roboto';
+}
+
+.test b{
+color:#0059b2;
+font-size:32px;
+}
 
 div.content {
 	margin: 10px;
 }
-
+.shlyapkin h1{
+margin-left:50px;
+color:#3F4137;
+font-family: 'MS Roboto';
+}
 .clear {clear: both;}
