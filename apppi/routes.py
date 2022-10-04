@@ -13,4 +13,4 @@ def index():
 @app.route('/help')
 def help():
     sp = ['PI', '2014', '']
-    return render_template('help.html', title=choice(sp))8
+    return render_template('help.html', title=choice(sp))
