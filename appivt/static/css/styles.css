@@ -14,7 +14,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-
 ul.mainmenu {
 	list-style: none;
 	background: #3F4137;
@@ -52,7 +51,7 @@ font-size:32px;
 }
 
 div.content {
-	margin: 10px;
+	margin: 30px;
 }
 .shlyapkin h1{
 margin-left:50px;
@@ -60,3 +59,14 @@ color:#3F4137;
 font-family: 'MS Roboto';
 }
 .clear {clear: both;}
+
+
+
+.form-contact label {
+	display: inline-block;
+	min-width: 80px;
+}
+.form-contact p {margin: 20px 10 20px 0; margin-left:20px}
+.form-contact input[type=submit], textarea {
+	font-size: 16px;
+}

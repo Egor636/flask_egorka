@@ -1,7 +1,10 @@
 from appivt import app
-from flask import render_template
+from flask import render_template, request
 
-menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Блюда', 'url': 'dishes'}, {'name': 'Помощь', 'url': 'help'}]
+menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Блюда', 'url': 'dishes'}, {'name': 'Помощь', 'url': 'help'},
+        {'name': 'Контакт', 'url': 'contact'}]
+
+bd_contact = []
 
 
 @app.route('/')
@@ -37,3 +40,18 @@ def dish():
 @app.route('/help')
 def help():
     return render_template('help.html', title='Cправка', menu=menu)
+
+
+def rec(bd, f):
+    print(f['username'])
+    bd.append({'username': f['username'], 'message': f['message']})
+
+@ app.route('/contact', methods=["POST", "GET"])
+def contact():
+    if request.method == "POST":
+        rec(bd_contact, request.form)
+        print(request.form['username'])
+
+        print(bd_contact)
+
+    return render_template('contact.html', title='Контакты', menu=menu)
