@@ -2,6 +2,8 @@ from apppi import app
 from flask import render_template
 from random import choice
 
+menu = ['Главная', 'Помощь', 'О программе']
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -14,3 +16,8 @@ def index():
 def help():
     sp = ['PI', '2014', '']
     return render_template('help.html', title=choice(sp))
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html', menu=menu)

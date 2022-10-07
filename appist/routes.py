@@ -1,7 +1,7 @@
 from appist import app
-from flask import render_template
+from flask import render_template, request
 
-menu = ['Главная', 'Помощь']
+menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Помощь', 'url': 'help'}]
 
 
 @app.route('/')
@@ -25,3 +25,10 @@ def index():
 @app.route('/help')
 def help():
     return render_template('help.html', title=' Помощь', menu=menu)
+
+@app.route('/contact', methods=["POST", "GET"])
+def contact():
+    if request.method == "POST":
+        print(request.form)
+        print(request.form['username'])
+    return render_template('contact.html', title=' Контакт', menu=menu)
