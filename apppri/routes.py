@@ -36,9 +36,9 @@ def main():
 def callback():
     if request.method == 'POST':
         if len(request.form['username']) > 2 and '@' in request.form['email']:
-            flash('Сообщение отправлено')
+            flash('Сообщение отправлено', category='success')
         else:
-            flash('  Ошибка отправки')
+            flash('  Ошибка отправки', category='error')
         print(request.form)
         print(request.form['email'])
     return render_template('callback.html', menu=menu, title="Обратная связь")
