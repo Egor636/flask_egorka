@@ -51,7 +51,10 @@ div.content {
 	display: inline-block;
 	min-width: 80px;
 }
-.form-contact p {margin: 10px 0 10px 0;}
+.form-contact p
+{margin: 10px 0 10px 0;
+margin-left:30px
+}
 .form-contact input[type=submit], textarea {
 	font-size: 16px;
 }
