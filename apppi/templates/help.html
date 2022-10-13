@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>Фласк - {{title}}</title>
-    {% elif title == 'PI' %}
-    <title>Фласк - {{title}}   </title>
-    {% else %}
-    <title>Фласк </title>
-    {% endif %}
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
 {% if title == 'PI' %}
 <h1> Помощь вам не поможет</h1>
 {% elif title == '2014' %}
-    <h1> Хочу в турцию   </h1>
+<h1> Хочу в турцию </h1>
 {% else %}
-    <h1>Помощь уже едет </h1>
-    {% endif %}
-
-</body>
-</html>
+<h1>Помощь уже едет </h1>
+{% endif %}
+{% endblock %}

@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title>Фласк - {{title}}</title>
-    {% elif title == 'PI' %}
-    <title>Фласк - {{title}} </title>
-    {% else %}
-    <title>Фласк </title>
-    {% endif %}
-</head>
-<body>
-<ul>
-    {% for m in menu %}
-    <li> {{m}}</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
 <h1> Тут будет о программе</h1>
-
-</body>
-</html>
+{% endblock %}
