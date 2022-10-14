@@ -1,7 +1,8 @@
 from appist import app
-from flask import render_template, request
+from flask import render_template, request, flash, get_flashed_messages
 
-menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Помощь', 'url': 'help'}]
+menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Помощь', 'url': 'help'},
+        {'name': 'Обратная связь', 'url': 'contact'}]
 
 
 @app.route('/')
@@ -26,9 +27,16 @@ def index():
 def help():
     return render_template('help.html', title=' Помощь', menu=menu)
 
+
 @app.route('/contact', methods=["POST", "GET"])
 def contact():
     if request.method == "POST":
-        print(request.form)
-        print(request.form['username'])
+        if len(request.form['username']) >=2:
+            flash('Сообщение отправлено', category='success')
+            print(get_flashed_messages(True))
+            print(request.form)
+            print(request.form['username'])
+        else:
+            flash("Ошибка отправки", category='error')
+
     return render_template('contact.html', title=' Контакт', menu=menu)
