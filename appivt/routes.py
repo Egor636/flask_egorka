@@ -1,8 +1,8 @@
 from appivt import app
-from flask import render_template, request
+from flask import render_template, request, flash, get_flashed_messages, session, redirect, url_for, abort
 
 menu = [{'name': 'Главная', 'url': 'index'}, {'name': 'Блюда', 'url': 'dishes'}, {'name': 'Помощь', 'url': 'help'},
-        {'name': 'Контакт', 'url': 'contact'}]
+        {'name': 'Контакт', 'url': 'contact'}, {'name': 'Авторизация', 'url': 'login'}]
 
 bd_contact = []
 
@@ -46,12 +46,39 @@ def rec(bd, f):
     print(f['username'])
     bd.append({'username': f['username'], 'message': f['message']})
 
-@ app.route('/contact', methods=["POST", "GET"])
+
+@app.route('/contact', methods=["POST", "GET"])
 def contact():
     if request.method == "POST":
-        rec(bd_contact, request.form)
+        if len(request.form['username']) > 2:
+            flash('Сообщение отправлено', category='success')
+            rec(bd_contact, request.form)
+        else:
+            flash('Ошибка отправки', category='error')
+        print(get_flashed_messages(True))
         print(request.form['username'])
-
         print(bd_contact)
 
     return render_template('contact.html', title='Контакты', menu=menu)
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if 'userlogged' in session:
+        return redirect(url_for('profile', username=session['userlogged']))
+    elif request.method == 'POST' and request.form['username'] == '1' and request.form['psw'] == '2':
+        session['userlogged'] = request.form['username']
+        return redirect(url_for('profile', username=session['userlogged']))
+    return render_template('login.html', title='Авторизация', menu=menu)
+
+
+@app.route('/profile/<username>')
+def profile(username):
+    if 'userlogged' not in session or session['userlogged'] != username:
+        abort(401)
+    return f'<h3>Пользователь : {username}</h3>'
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page404.html', title='Все сломалось', menu=menu)
