@@ -1,4 +1,6 @@
 html, body {
+    background: #3C0470;
+    color:#15E379;
 	font-family: 'Arial';
 	margin: 0;
 	padding: 0;
@@ -6,7 +8,7 @@ html, body {
 	width: 100%;
 }
 a {
-	color: #0059b2;
+	color: #15E379;
 	text-decoration: none;
 }
 a:hover {
@@ -16,11 +18,11 @@ a:hover {
 
 ul.mainmenu {
 	list-style: none;
-	background: #3F4137;
+	background: #8E41D5;
 	height: 60px;
 	margin: 0;
 	padding: 0;
-	color: #fdc073;
+	color: #15E379;
 	font-size: 20px;
 	overflow: hidden;
 }
