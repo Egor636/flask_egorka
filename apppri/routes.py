@@ -1,11 +1,12 @@
 from apppri import app
-from flask import render_template, request, flash
+from flask import render_template, request, flash, session, redirect, url_for, abort
 
 menu = [{"title": "Начало", "url": "index"},
         {"title": "Главная", "url": "main"},
         {"title": "Помощь", "url": "help"},
         {"title": "О приложении", "url": "about"},
-        {"title": "Обратная связь", "url": "callback"}
+        {"title": "Обратная связь", "url": "callback"},
+        {"title": "Авторизация", "url": "login"}
         ]
 
 
@@ -42,3 +43,25 @@ def callback():
         print(request.form)
         print(request.form['email'])
     return render_template('callback.html', menu=menu, title="Обратная связь")
+
+@app.route('/profile/<username>')
+def profile(username):
+    if 'userlogged' not in session or  session['userlogged'] != username:
+        abort(401)
+    return f"<h1> Привет {username} </h1>"
+
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    if 'userlogged' in session:
+        return redirect(url_for('profile', username=session['userlogged']))
+    elif request.method == 'POST' and request.form['username'] == '1' and request.form['psw'] == '1':
+        session['userlogged'] = request.form['username']
+        return redirect(url_for('profile', username=session['userlogged']))
+
+    return render_template('login.html', title='Авторизация', menu=menu)
+
+
+@app.errorhandler(404)
+def page_404(error):
+    return render_template('page404.html', title='Страница не найдена', menu=menu, error=error)

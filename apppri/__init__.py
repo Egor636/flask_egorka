@@ -5,6 +5,6 @@ app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'ikljsdehgfno;slkefjhgwielkjtnmgfwoiehjnewrkgn'
 
 
-app.config.from_object(Con)
+app.config.from_object(Config)
 
 from apppri import routes
