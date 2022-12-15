@@ -1,13 +1,5 @@
 import sqlite3
 
-from apppi import app
-
-
-def connect_db():
-    conn = sqlite3.connect(app.config['DATABASE'])
-    conn.row_factory = sqlite3.Row
-    return conn
-
 
 def create_db():
     db = connect_db()
@@ -25,7 +17,7 @@ class FDataBase:
 
     def setMenu(self, title, url):
         try:
-            self.__cur.execute('INSERT INTO mainmenu VALUES(NULL, ?, ?'),(title, url)
+            self.__cur.execute('INSERT INTO mainmenu VALUES(NULL, ?, ?)', (title, url))
             self.__db.commit()
         except sqlite3.Error as e:
             print('Ошибка добавления в БД', e)
@@ -34,7 +26,7 @@ class FDataBase:
 
     def delMenu(self, id=0):
         try:
-            if id==0:
+            if id == 0:
                 self.__cur.execute('DELETE FROM mainmenu')
             else:
                 pass
@@ -46,10 +38,16 @@ class FDataBase:
 
 
 if __name__ == '__main__':
-    # db = connect_bd()
-    # db = FDataBase(db)
-    # #print(db.setMenu('Разработчик', 'about'))
-    # print(db.delMenu(5))
-    create_db()
+    from apppi import app, connect_db
+    db = connect_db()
+    db = FDataBase(db)
+    print(db.setMenu('Главная бд', 'about'))
+    print(db.setMenu('Добавить статью', 'posts'))
+    print(db.setMenu('Помощь', 'help'))
+    print(db.setMenu('Главная', 'index'))
+    print(db.setMenu('об авторе', 'me'))
+    print(db.setMenu('Главное', 'base'))
+    #print(db.delMenu())
+    #create_db()
 
 
